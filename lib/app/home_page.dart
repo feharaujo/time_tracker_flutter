@@ -1,12 +1,13 @@
 import 'dart:async';
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:time_tracker_flutter_course/services/Auth.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({@required this.onSignOut});
+  HomePage({@required this.auth, @required this.onSignOut});
 
   final VoidCallback onSignOut;
+  final AuthBase auth;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class HomePage extends StatelessWidget {
   /// Firebase anonymous auth
   Future<void> _signOut() async {
     try {
-      await FirebaseAuth.instance.signOut();
+      await auth.signOut();
       onSignOut();
     } catch (e) {
       print(e.toString());

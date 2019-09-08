@@ -4,9 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:time_tracker_flutter_course/services/Auth.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({@required this.auth, @required this.onSignOut});
+  HomePage({@required this.auth});
 
-  final VoidCallback onSignOut;
   final AuthBase auth;
 
   @override
@@ -34,7 +33,6 @@ class HomePage extends StatelessWidget {
   Future<void> _signOut() async {
     try {
       await auth.signOut();
-      onSignOut();
     } catch (e) {
       print(e.toString());
     }

@@ -27,7 +27,8 @@ class Auth implements AuthBase {
   }
 
   Future<User> signInAnonymously() async {
-    FirebaseUser firebaseUser = await _firebaseAuth.signInAnonymously();
+    AuthResult authResult = await _firebaseAuth.signInAnonymously();
+    FirebaseUser firebaseUser = authResult.user;
     return _userFromFirebase(firebaseUser);
   }
 

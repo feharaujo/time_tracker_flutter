@@ -1,4 +1,14 @@
 PODS:
+  - FBSDKCoreKit (5.8.0):
+    - FBSDKCoreKit/Basics (= 5.8.0)
+    - FBSDKCoreKit/Core (= 5.8.0)
+  - FBSDKCoreKit/Basics (5.8.0)
+  - FBSDKCoreKit/Core (5.8.0):
+    - FBSDKCoreKit/Basics
+  - FBSDKLoginKit (5.8.0):
+    - FBSDKLoginKit/Login (= 5.8.0)
+  - FBSDKLoginKit/Login (5.8.0):
+    - FBSDKCoreKit (~> 5.0)
   - Firebase/Auth (6.3.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 6.1.2)
@@ -38,6 +48,10 @@ PODS:
     - GoogleUtilities/Environment (~> 6.0)
     - GoogleUtilities/UserDefaults (~> 6.0)
   - Flutter (1.0.0)
+  - flutter_facebook_login (0.0.1):
+    - FBSDKCoreKit (~> 5.5)
+    - FBSDKLoginKit (~> 5.5)
+    - Flutter
   - google_sign_in (0.0.1):
     - Flutter
     - GoogleSignIn (~> 4.0)
@@ -88,6 +102,7 @@ DEPENDENCIES:
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - Flutter (from `.symlinks/flutter/ios`)
+  - flutter_facebook_login (from `.symlinks/plugins/flutter_facebook_login/ios`)
   - google_sign_in (from `.symlinks/plugins/google_sign_in/ios`)
 
 SPEC REPOS:
@@ -103,6 +118,8 @@ SPEC REPOS:
     - GTMSessionFetcher
     - nanopb
   trunk:
+    - FBSDKCoreKit
+    - FBSDKLoginKit
     - GoogleSignIn
     - GoogleToolboxForMac
 
@@ -113,10 +130,14 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/firebase_core/ios"
   Flutter:
     :path: ".symlinks/flutter/ios"
+  flutter_facebook_login:
+    :path: ".symlinks/plugins/flutter_facebook_login/ios"
   google_sign_in:
     :path: ".symlinks/plugins/google_sign_in/ios"
 
 SPEC CHECKSUMS:
+  FBSDKCoreKit: e7dcac0aabcfb09d0166998edd95fe3b05a0ce5d
+  FBSDKLoginKit: 1b0cf04df0370b37404213157b060d6666ede814
   Firebase: 8432d732974498afd5987e9001a05f90f1a3d625
   firebase_auth: 1e3b7bdd37b9fbd4ef75ba1d985b00be09e02d3d
   firebase_core: ae55ea92448ec8675d325da4db22cf3b4d58a54d
@@ -126,6 +147,7 @@ SPEC CHECKSUMS:
   FirebaseCore: 68f8a7f50cdae542715d4e86afa37c4067217dcb
   FirebaseInstanceID: f20243a1d828e0e9a3798b995174dedc16f1b32a
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  flutter_facebook_login: cfb5659f686b1c575ef205c6b6fd20db9679d3c4
   google_sign_in: 27e70a98b529f0b076d4b19f231b81da28b1750b
   GoogleAppMeasurement: a35a645835bae31b6bdc0576396bc23908f12a22
   GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39

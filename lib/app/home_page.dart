@@ -1,13 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:time_tracker_flutter_course/services/Auth.dart';
+import 'package:time_tracker_flutter_course/common_widgets/platform_alert_dialog.dart';
+import 'package:time_tracker_flutter_course/services/auth_provider.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({@required this.auth});
-
-  final AuthBase auth;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,16 +19,30 @@ class HomePage extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-            onPressed: _signOut,
+            onPressed: () => _confirmSignOut(context),
           )
         ],
       ),
     );
   }
 
+  Future<void> _confirmSignOut(BuildContext context) async {
+    final didRequestSignOut = await PlatformAlertDialog(
+      title: "Logout",
+      cancelActionText: "Cancel",
+      content: "Are you sure that you want to logout?",
+      defaultActionText: "Logout",
+    ).show(context);
+
+    if (didRequestSignOut == true) {
+      _signOut(context);
+    }
+  }
+
   /// Firebase anonymous auth
-  Future<void> _signOut() async {
+  Future<void> _signOut(BuildContext context) async {
     try {
+      final auth = AuthProvider.of(context);
       await auth.signOut();
     } catch (e) {
       print(e.toString());

@@ -26,6 +26,8 @@ dependencies:
   google_sign_in: ^4.0.7
   #Facebook
   flutter_facebook_login: ^3.0.0
+  # provider
+  provider: ^3.2.0
 
 dev_dependencies:
   flutter_test:
